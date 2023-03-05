@@ -29,6 +29,7 @@ public class ShoppingList extends JFrame  {
 	JButton updateBtn =new JButton("Update Item");
 	JButton deleteBtn =new JButton("Delete Item");
 	JButton returnBtn2 =new JButton("HIDE");
+	JButton removeAllBtn2 =new JButton("Delete All Items!");
 	
 	//update section
 	JLabel month2 = new JLabel("Select Month: ");
@@ -229,7 +230,7 @@ public class ShoppingList extends JFrame  {
 				allItems.setText(output);
 				p3.add(allItems);
 				p3.add(returnBtn2);
-				
+				p3.add(removeAllBtn2);				
 			}else {
 			p3.setVisible(false);
 			p3.removeAll();
@@ -374,6 +375,7 @@ public class ShoppingList extends JFrame  {
 				tempValue.clear();
 				p3.add(allItems);
 				p3.add(returnBtn2);
+				p3.add(removeAllBtn2);
 				priceInput.setText("");
 				p3.setVisible(true);
 			}
@@ -475,6 +477,21 @@ public class ShoppingList extends JFrame  {
 			p3.add(returnBtn2);
 			p3.setVisible(true);
 		});
+
+		removeAllBtn2.addActionListener(e->{
+			p2.setVisible(false);
+			p1.setVisible(true);
+			p3.setVisible(false);
+			list.clear();
+			output="";
+			updateItemsCombo.removeAllItems();
+			deleteItemsCombo.removeAllItems();
+			p3.removeAll();
+			errorMessage.setText("All Items Deleted, Shopping List is Empty, add items.");
+			p3.add(errorMessage);
+			p3.add(returnBtn2);
+			p3.setVisible(true);
+		});
 		
 		this.setTitle("Shopping List");
 		this.getContentPane();
@@ -504,6 +521,7 @@ public class ShoppingList extends JFrame  {
 		returnBtn1.setBackground(Color.decode("#232C33"));
 		removeBtn.setBackground(Color.decode("#232C33"));
 		removeAllBtn.setBackground(Color.decode("#232C33"));
+		removeAllBtn2.setBackground(Color.decode("#232C33"));
 		returnBtn3.setBackground(Color.decode("#232C33"));
 		updateBtn.setBackground(Color.decode("#232C33"));
 		newItemBtn.setForeground(Color.decode("#FFFFFF"));
@@ -515,6 +533,7 @@ public class ShoppingList extends JFrame  {
 		returnBtn1.setForeground(Color.decode("#FFFFFF"));
 		removeBtn.setForeground(Color.decode("#FFFFFF"));
 		removeAllBtn.setForeground(Color.decode("#FFFFFF"));
+		removeAllBtn2.setForeground(Color.decode("#FFFFFF"));
 		returnBtn3.setForeground(Color.decode("#FFFFFF"));
 		updateBtn.setForeground(Color.decode("#FFFFFF"));
 
